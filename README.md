@@ -1,31 +1,125 @@
-# Bombay City Border Roleplay - Discord Bot
+# 🎮 ERLC Bombay City Border Roleplay - Discord Bot
 
-A Discord bot for automated server setup for the **Erlc Bombay City Border Roleplay** community. This bot handles creation of channels, roles, and permission management.
+A comprehensive Discord bot for the **Erlc (Emergency Response Liberty County)** Roblox game community. Handles automated server setup with realistic roleplay departments, channels, and role management for your Bombay City Border roleplay server.
 
-## Features
+---
 
-✨ **Automated Server Setup**
-- Creates all required roles (Owner, Co-Owner, Admin, Moderator, Staff, Member)
-- Creates all necessary channels (announcements, rules, welcome, general, off-topic, staff-chat, logs, suggestions, reports)
-- Automatically configures permissions
+## ✨ Features
 
-🔐 **Permission Management**
-- Staff role gets exclusive access to #staff-chat
-- No other roles receive channel permissions by default
-- Easy role assignment and removal commands
+### 🚀 **One-Command Server Setup**
+- **25+ Roleplay Roles** - Police, Fire, EMS, Civilian, Criminal, and Management roles
+- **6 Department Categories** - Organized channels for each department
+- **20+ Channels** - Pre-configured with proper permissions
+- **Automatic Permissions** - Police, Fire, and Staff channels protected
+- **Color-Coded Roles** - Easy identification (Blue=Police, Red=Fire, Green=Civilian, etc.)
 
-⚡ **Easy to Use**
-- Simple commands for server administration
-- Built-in role and channel listing
+### 🛡️ **Law Enforcement**
+- Police Commissioner, Captain, Lieutenant, Sergeant, Officer, Cadet
+- Private police channels with Officer-only access
+- Dispatch and training channels
 
-## Installation
+### 🚒 **Emergency Services**
+- Fire Chief, Firefighter roles
+- Paramedic, EMT roles
+- Fire dispatch and operations channels
+
+### 🏢 **Civilian Roleplay**
+- Citizen, Taxi Driver, Truck Driver, Bus Driver
+- Mechanic, Medic, Businessman roles
+- Dedicated civilian chat and job channels
+
+### ⚠️ **Criminal System**
+- Criminal, Gang Member, Wanted, Smuggler roles
+- Separate roleplay space
+
+### 👨‍💼 **Management**
+- Owner, Co-Owner, Administrator, Moderator, Staff
+- Staff-only channels for administrative discussions
+
+### 📊 **Easy Management Commands**
+```
+!setup                    - Initialize the entire server
+!addrole @user role       - Assign a role
+!removerole @user role    - Remove a role
+!duty @user on/off        - Mark players on/off duty
+!roleslist                - View all available roles
+!channelslist             - View all channels
+!serverinfo               - Show server statistics
+```
+
+---
+
+## 📋 Role Structure
+
+### 🚨 **Law Enforcement & Emergency (10 roles)**
+```
+Police Commissioner → Captain → Lieutenant → Sergeant → Officer → Cadet
+Fire Chief → Firefighter
+Paramedic → EMT
+```
+
+### 👥 **Civilian (7 roles)**
+```
+Citizen, Taxi Driver, Truck Driver, Bus Driver, Mechanic, Medic, Businessman
+```
+
+### 🔴 **Criminal (4 roles)**
+```
+Criminal, Gang Member, Wanted, Smuggler
+```
+
+### 🛡️ **Management (5 roles)**
+```
+Owner, Co-Owner, Administrator, Moderator, Staff
+```
+
+---
+
+## 🏗️ Channel Structure
+
+### 📢 **Announcements Category** (5 channels)
+- **#announcements** - Important server announcements
+- **#rules** - Server rules & roleplay guidelines
+- **#updates** - Game and server updates
+- **#welcome** - Welcome new members
+
+### 🚔 **Police Department** (4 channels) *Officer Access Only*
+- **#police-main** - General police chat
+- **#police-reports** - Incident reports & case files
+- **#police-dispatch** - Active calls and operations
+- **#police-training** - Training and procedures
+
+### 🚒 **Fire & EMS** (3 channels) *Firefighter/EMS Access Only*
+- **#fire-main** - General fire department chat
+- **#fire-dispatch** - Emergency calls
+- **#ems-chat** - Paramedic/EMT operations
+
+### 🏢 **Civilian** (4 channels) *Public*
+- **#civilian-chat** - General roleplay chat
+- **#jobs** - Job and employment discussions
+- **#business** - Business and trading
+- **#events** - Community events
+
+### ⚠️ **Reports** (3 channels) *Public*
+- **#reports** - Player reports & complaints
+- **#appeals** - Ban/warning appeals
+- **#suggestions** - Server suggestions
+
+### 👨‍💼 **Staff** (3 channels) *Staff Access Only*
+- **#staff-chat** - Staff discussions
+- **#logs** - Server activity logs
+- **#admin-chat** - Administrator communications
+
+---
+
+## 🚀 Quick Start
 
 ### Prerequisites
 - Python 3.8+
-- pip (Python package manager)
 - Discord bot token
+- Server with admin permissions
 
-### Setup Steps
+### Installation
 
 1. **Clone the repository**
    ```bash
@@ -38,28 +132,28 @@ A Discord bot for automated server setup for the **Erlc Bombay City Border Rolep
    pip install -r requirements.txt
    ```
 
-3. **Create a Discord Application**
+3. **Create Discord Bot**
    - Go to [Discord Developer Portal](https://discord.com/developers/applications)
    - Click "New Application"
-   - Go to "Bot" section and click "Add Bot"
-   - Copy your bot token
+   - Go to "Bot" and click "Add Bot"
+   - Copy the token
 
 4. **Configure bot token**
-   - Copy `.env.example` to `.env`
-   - Replace `your_bot_token_here` with your actual token
    ```bash
    cp .env.example .env
    ```
+   - Open `.env` and replace `your_bot_token_here` with your token
 
-5. **Set bot permissions**
-   - Go to OAuth2 > URL Generator
-   - Select scopes: `bot`
-   - Select permissions:
+5. **Set Bot Permissions**
+   - Go to OAuth2 → URL Generator
+   - Scopes: `bot`
+   - Permissions:
      - Manage Roles
      - Manage Channels
-     - View Channels
-     - Send Messages
      - Read Messages
+     - Send Messages
+     - Embed Links
+     - Read Message History
    - Copy generated URL and invite bot to your server
 
 6. **Run the bot**
@@ -67,106 +161,215 @@ A Discord bot for automated server setup for the **Erlc Bombay City Border Rolep
    python bot.py
    ```
 
-## Commands
+7. **Initialize server**
+   ```
+   !setup
+   ```
 
-### `!setup`
-Runs the complete server setup. Creates all roles and channels with proper permissions.
+---
 
-**Usage:**
+## 📖 Commands Guide
+
+### **Setup Commands**
+
+#### `!setup`
+Runs complete Erlc server initialization. Creates all roles, channels, and permissions.
+
 ```
 !setup
 ```
 
-**Requirements:** Administrator permission
+**Requirements:** Administrator
 
-### `!addrole`
+---
+
+### **Role Management**
+
+#### `!addrole @user rolename`
 Add a role to a member.
 
-**Usage:**
-```
-!addrole @username rolename
-```
-
-**Examples:**
-```
-!addrole @john Staff
-!addrole @admin Admin
+```bash
+!addrole @john Police Officer
+!addrole @sarah Firefighter
+!addrole @mike Criminal
 ```
 
-### `!removerole`
+#### `!removerole @user rolename` (or `!demote`)
 Remove a role from a member.
 
-**Usage:**
-```
-!removerole @username rolename
-```
-
-### `!roles`
-List all roles in the server.
-
-**Usage:**
-```
-!roles
+```bash
+!removerole @john Police Officer
+!demote @john Police Officer
 ```
 
-### `!channels`
-List all text channels in the server.
+---
 
-**Usage:**
+### **Information Commands**
+
+#### `!roleslist`
+View all available roles organized by department.
+
 ```
-!channels
+!roleslist
 ```
 
-## Server Structure
+#### `!channelslist`
+View all channels organized by category.
 
-### Roles Created
-- Owner
-- Co-Owner
-- Admin
-- Moderator
-- Staff
-- Member
+```
+!channelslist
+```
 
-### Channels Created
-- **#announcements** - Important announcements
-- **#rules** - Server rules
-- **#welcome** - Welcome messages
-- **#general** - General chat
-- **#off-topic** - Off-topic discussions
-- **#staff-chat** - Private staff channel (Staff role only)
-- **#logs** - Server logs
-- **#suggestions** - Suggestions from members
-- **#reports** - Report channel
+#### `!serverinfo`
+Display server statistics and information.
 
-## Permissions
+```
+!serverinfo
+```
 
-- ✅ **Staff role**: Can view and send messages in #staff-chat
-- ✅ **Everyone**: Has access to all other channels
-- ✅ **No role restrictions**: Other roles don't have special channel permissions
+---
 
-## Troubleshooting
+### **Roleplay Commands**
 
-### Bot not responding?
+#### `!duty @user on/off`
+Mark a player as on-duty or off-duty (for tracking).
+
+```bash
+!duty @john on     # John is now on duty
+!duty @john off    # John is now off duty
+```
+
+---
+
+## 🔐 Permission System
+
+| Channel | View | Send | Roles Allowed |
+|---------|------|------|---------------|
+| #police-* | ❌ | ❌ | Police Officer+ |
+| #fire-* | ❌ | ❌ | Firefighter+ |
+| #ems-chat | ❌ | ❌ | Paramedic, EMT |
+| #staff-chat | ❌ | ❌ | Staff+ |
+| #logs | ❌ | ❌ | Administrator+ |
+| #admin-chat | ❌ | ❌ | Administrator+ |
+| Others | ✅ | ✅ | Everyone |
+
+---
+
+## 🎯 Role Hierarchy
+
+```
+┌─ MANAGEMENT
+│  ├─ Owner (gold)
+│  ├─ Co-Owner (gold)
+│  ├─ Administrator (purple)
+│  ├─ Moderator (magenta)
+│  └─ Staff (light gray)
+│
+├─ LAW ENFORCEMENT
+│  ├─ Police Commissioner (blue)
+│  ├─ Police Captain (blue)
+│  ├─ Police Lieutenant (blue)
+│  ├─ Police Sergeant (blue)
+│  ├─ Police Officer (blue)
+│  └─ Police Cadet (blue)
+│
+├─ EMERGENCY SERVICES
+│  ├─ Fire Chief (red)
+│  ├─ Firefighter (red)
+│  ├─ Paramedic (orange)
+│  └─ EMT (orange)
+│
+├─ CIVILIAN
+│  ├─ Citizen (green)
+│  ├─ Taxi Driver (yellow)
+│  ├─ Truck Driver (gold)
+│  ├─ Bus Driver (orange)
+│  ├─ Mechanic (dark gray)
+│  ├─ Medic (purple)
+│  └─ Businessman (dark gray)
+│
+└─ CRIMINAL
+   ├─ Criminal (dark red)
+   ├─ Gang Member (dark red)
+   ├─ Wanted (dark red)
+   └─ Smuggler (dark red)
+```
+
+---
+
+## 🐛 Troubleshooting
+
+### **Bot not responding?**
 1. Check if bot is online in Discord
-2. Verify bot token is correct in `.env`
+2. Verify bot token in `.env` file
 3. Ensure bot has required permissions
-4. Check console for error messages
+4. Check Python console for errors
 
-### Permission denied errors?
-1. Ensure bot role is above other roles
-2. Give bot "Manage Roles" and "Manage Channels" permissions
-3. Make sure bot has administrator permissions
+### **Permission denied errors?**
+1. Move bot role ABOVE other roles in server settings
+2. Give bot "Administrator" or specific permissions:
+   - Manage Roles
+   - Manage Channels
+3. Restart the bot
 
-### Channels/roles already exist?
-The bot checks for existing channels and roles before creating them, so you can safely run `!setup` multiple times.
+### **Channels/roles already exist?**
+No problem! The bot checks for existing items and won't duplicate them. Safe to run `!setup` multiple times.
 
-## Support
+### **Bot token not working?**
+1. Go to [Discord Developer Portal](https://discord.com/developers/applications)
+2. Select your application
+3. Copy the bot token from "Bot" section
+4. Update `.env` with new token
+5. Restart bot
 
-For issues or questions, please create an issue on GitHub.
+---
 
-## License
+## 📝 Configuration
 
-MIT License - Feel free to use and modify!
+Edit the following in `bot.py` to customize:
 
-## Made for
-🎮 **Erlc Bombay City Border Roleplay** Community
+```python
+# Line 24-30: Modify role names
+AUTHORITY_ROLES = ["Police Officer", ...]
+
+# Line 45-75: Modify channel structure and categories
+DEPARTMENT_CHANNELS = {...}
+
+# Line 244-265: Customize role colors
+role_colors = {...}
+```
+
+---
+
+## 🤝 Contributing
+
+Feel free to fork and submit pull requests for improvements!
+
+---
+
+## 📄 License
+
+MIT License - Use freely in your projects
+
+---
+
+## 🎮 For ERLC Community
+
+Made with ❤️ for the **Erlc Bombay City Border Roleplay** community!
+
+- 🎮 [Roblox ERLC Game](https://www.roblox.com/games/2534724415/)
+- 📚 Supports realistic roleplay scenarios
+- 👥 Organized team management
+- 🔐 Secure role-based access
+
+---
+
+## 📞 Support
+
+For issues or feature requests, open an issue on GitHub!
+
+---
+
+**Last Updated:** December 2025
+**Made for:** Erlc Bombay City Border Roleplay
+**Language:** Python 3.8+
